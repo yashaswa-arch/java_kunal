@@ -115,44 +115,54 @@ public class linearsque {
 
 //4 https://leetcode.com/problems/find-numbers-with-even-number-of-digits/
 
-public static void main(String[] args) {
-  int []arr={12,345,2,6,7896,-12};
-  System.out.println(findnumbers(arr));  
-}
-static int findnumbers(int[]nums){
-  int count = 0;
+// public static void main(String[] args) {
+//   int []arr={12,345,2,6,7896,-12};
+//   System.out.println(findnumbers(arr));  
+// }
+// static int findnumbers(int[]nums){
+//   int count = 0;
  
-  for(int num:nums){
-    if(even(num)){
-      count++;
-    }
-  }
-   return count;
-}
-//function to check whether the digit is even or odd
-static boolean even(int nums){
-  int numofdigits=digits(nums);
- if(numofdigits%2==0){
-  return true;
-}
-return false;
-//shortcut
-//return numofdigits%2==0;
-}
-// counting no of digits in a number
-static int digits(int num){
-int count =0;
-if (num==0){
-  return 1;
-}
-if(num<0){
-  num=num*-1;
-}
-while(num>0){
-count++;
-num/=10;
+//   for(int num:nums){
+//     if(even(num)){
+//       count++;
+//     }
+//   }
+//    return count;
+// }
+// //function to check whether the digit is even or odd
+// static boolean even(int nums){
+//   int numofdigits=digits(nums);
+//  if(numofdigits%2==0){
+//   return true;
+// }
+// return false;
+// //shortcut
+// //return numofdigits%2==0;
+// }
+// // counting no of digits in a number
+// static int digits(int num){
+// int count =0;
+// if (num==0){
+//   return 1;
+// }
+// if(num<0){
+//   num=num*-1;
+// }
+// while(num>0){
+// count++;
+// num/=10;
 
+// }
+//   return count;
+
+// }
+
+//optimized way of finding digits
+static int digits2(int nums){
+  if(nums<0){
+       nums=nums*-1;
 }
-  return count;
-}
+  return (int)(Math.log10(nums))+1;
+
   }
+   }
