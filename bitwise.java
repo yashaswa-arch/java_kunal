@@ -40,8 +40,8 @@ public class bitwise {
 //5
 //no of set bits
  int a = 45;
- System.out.println(Integer.toBinaryString(a));//output 1010 represntation in bit
- System.out.println(setbits(a));
+ System.out.println(Integer.toBinaryString(a));//output 10110 represntation in bit
+ System.out.println(setbits(a)); //output 4 no of set bits means 1 
 
     }
     //     int a = 12; // Binary: 1100
@@ -73,14 +73,14 @@ public class bitwise {
 
 //magic no
 
-static int setbits(int n){
-    int count =0;
-    while(n>0){
-        n-=(n&-n);
-count++;
-    }
-    return count;
-}
+// static int setbits(int n){
+//     int count =0;
+//     while(n>0){
+//         n-=(n&-n);
+// count++;
+//     }
+//     return count;
+// }
     
     }
    
