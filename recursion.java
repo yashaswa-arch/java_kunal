@@ -1,3 +1,4 @@
+
 public class recursion {
 //     public static void main(String[] args) {
 //         //write a fucntion 
@@ -145,15 +146,103 @@ public class recursion {
 //      fun6(n/10);
 
 
+// public static void main(String[] args) {
+//     int[] arr={1,2,4,3,8,10};
+//     System.out.println(sorted(arr,0));
+// }
+// static boolean sorted(int[]arr,int index){
+//     //base condition
+//     if(index==arr.length-1){
+//         return true;
+//     }
+//     return arr[index]<arr[index+1]&  sorted(arr,index+1);
+// }
+
+// public static void main(String[] args) {
+//     int [] arr={1,2,4,5,6};
+//     System.out.println(linear(arr,4,0));
+
+// System.out.println(returind(arr, 4, 0));
+// }
+// static boolean linear(int[]arr,int target,int index){
+//     if(index==arr.length){
+//         return false;
+//     }
+    
+//     return (arr[index]==target) || linear(arr,target,index+1);
+    
+// }
+
+// //for return of index
+// static int returind(int []arr,int target,int index){
+//     if(index==arr.length){
+//         return -1;
+//     }
+//     if(arr[index]==target){
+//         return index;
+//     }else{
+//         return returind(arr, target, index+1);
+//     }
+// }
+
+
+// fin the number at array how many times
+// public static void main(String[] args) {
+//   int []arr={1,2,3,3,4,5,6};
+//   System.out.println(findOccurrences(arr, 3, 0, new ArrayList<Integer>()));
+// }
+// static ArrayList<Integer> findOccurrences(int[] arr, int target, int index,
+//                                           ArrayList<Integer> list){
+// if(index==arr.length){
+//     return list;
+// }
+// if(arr[index]==target){
+// list.add(index);
+// }
+// return findOccurrences(arr, target, index+1, list);
+// }
+
+
+// same que withouth passing arraylist 
+// static ArrayList<Integer> findOccurrences(int[] arr, int target, int index
+//                                           ){
+//   ArrayList <Integer> list = new ArrayList<>();                                          
+// if(index==arr.length){
+//     return list;
+// }
+// //this will contain ans for that fun call only
+// if(arr[index]==target){
+// list.add(index);
+// }
+// ArrayList<Integer> ansfrombelowcalls =findOccurrences(arr, target, index+1);
+// list.addAll(ansfrombelowcalls);
+// return list;
+// }
+
+//rotated binary search 
 public static void main(String[] args) {
-    int[] arr={1,2,4,3,8,10};
-    System.out.println(sorted(arr,0));
+  int arr [] = {5,6,7,8,9,1,2,3,};
+  System.out.println(search(arr, 8, 0, arr.length-1));
 }
-static boolean sorted(int[]arr,int index){
-    //base condition
-    if(index==arr.length-1){
-        return true;
+static int search(int[]arr,int target,int s ,int e){
+  if(s>e){
+    return -1;
+  }
+  int mid = s +(e-s)/2;
+  if (arr[mid]==target){
+    return mid;
+  }
+  if(arr[s]<=arr[e]){
+    if(target>=arr[s]&&target <=arr[mid]){
+      return search(arr, target, s, mid-1);
     }
-    return arr[index]<arr[index+1]&sorted(arr,index+1);
+    else{
+      return search(arr, target, mid+1, e);
+    }
+  }
+  if(target >= arr[mid]&&target <= arr[e]){
+    return search(arr, target, mid+1, e);
+  }
+  return search(arr, target, s, mid-1);
 }
       }
